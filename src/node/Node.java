@@ -7,7 +7,7 @@ public class Node<E> {
     /**
      * Creates a node of a generic type
      * @param element the element to be stored in the node
-     * @param next the next node in the list
+     * @param next the node that it points to
      */
     public Node(E element, Node<E> next) {
         this.element = element;

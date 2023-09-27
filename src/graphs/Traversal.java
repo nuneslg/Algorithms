@@ -1,12 +1,16 @@
 package graphs;
 
-import graphs.Graph;
-
 public abstract class Traversal {
+
+    /**
+     * Executes the chosen traversal algorithm
+     * @param g the graph
+     * @param v the vertex
+     */
     public abstract void traverse(Graph g, int v);
 
     /**
-     * Traverses a graph
+     * Traverses a graph ensuring that all vertices are visited in case of a disconnected graph and calls the chosen traversal algorithm
      * @param g the graph
      */
     public void graphTraverse(Graph g) {
