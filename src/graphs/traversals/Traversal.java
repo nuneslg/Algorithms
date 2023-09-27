@@ -9,7 +9,7 @@ public abstract class Traversal {
      * @param g the graph
      * @param v the vertex
      */
-    public abstract void traverse(Graph g, int v);
+    protected abstract void traverse(Graph g, int v);
 
     /**
      * Traverses a graph ensuring that all vertices are visited in case of a disconnected graph and calls the chosen traversal algorithm
