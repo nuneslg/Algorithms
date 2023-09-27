@@ -56,7 +56,7 @@ public class Graph {
      * @param v the vertex
      * @return the index of the vertex if it exists, otherwise the number of vertices
      */
-    protected int first(Graph g, int v) {
+    public int first(Graph g, int v) {
         for (int i = 0; i < g.numVertices - 1; i++) {
             if (g.matrix[v][i] != 0) {
                 return i;
@@ -71,7 +71,7 @@ public class Graph {
      * @param w the second vertex
      * @return the index of the vertex if it exists, otherwise the number of vertices
      */
-    protected int next(Graph g, int v, int w) {
+    public int next(Graph g, int v, int w) {
         for (int i = w + 1; i < g.numVertices - 1; i++) {
             if (g.matrix[v][i] != 0) {
                 return i;
@@ -86,7 +86,7 @@ public class Graph {
      * @param j the second vertex
      * @param wt the weight of the edge
      */
-    private void setEdge(Graph g, int i, int j, int wt) {
+    public void setEdge(Graph g, int i, int j, int wt) {
         if (wt == 0) {
             System.out.println("Cannot set weight to 0");
         } else {
@@ -103,7 +103,7 @@ public class Graph {
      * @param i the first vertex
      * @param j the second vertex
      */
-    private void delEdge(Graph g, int i, int j) {
+    public void delEdge(Graph g, int i, int j) {
         if (g.matrix[i][j] != 0) {
             g.numEdges--; // decrement the number of edges if the edge exists
         }
