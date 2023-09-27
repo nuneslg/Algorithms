@@ -1,6 +1,9 @@
-package graphs.traversals;
+package graphs.traversals.dfs;
 
 import graphs.Graph;
+import graphs.traversals.PosVisit;
+import graphs.traversals.PreVisit;
+import graphs.traversals.Traversal;
 
 public abstract class DFS extends Traversal implements PreVisit, PosVisit {
 
