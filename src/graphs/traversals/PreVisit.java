@@ -1,4 +1,6 @@
-package graphs;
+package graphs.traversals;
+
+import graphs.Graph;
 
 /**
  * Processes a vertex before visiting it and its adjacent vertices

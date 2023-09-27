@@ -1,6 +1,13 @@
-package graphs;
+package graphs.traversals;
 
-public class DFS extends Traversal {
+import graphs.Graph;
+
+public abstract class DFS extends Traversal implements PreVisit, PosVisit {
+
+
+    protected abstract void preVisit(Graph g, int v);
+
+    protected abstract void postVisit(Graph g, int v);
 
     /**
      * Traverses a graph using depth-first search
@@ -9,7 +16,7 @@ public class DFS extends Traversal {
      */
     @Override
     public void traverse(Graph g, int v) {
-       // preVisit(g, v);
+        preVisit(g, v);
         g.setMark(g,v, 1);
         int w = g.first(g,v);
         while (w < g.getNumVertices(g)) {
@@ -18,6 +25,6 @@ public class DFS extends Traversal {
             }
             w = g.next(g, v, w);
         }
-      //  postVisit(g, v);
+        postVisit(g, v);
     }
 }

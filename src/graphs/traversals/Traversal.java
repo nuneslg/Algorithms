@@ -1,4 +1,6 @@
-package graphs;
+package graphs.traversals;
+
+import graphs.Graph;
 
 public abstract class Traversal {
 
