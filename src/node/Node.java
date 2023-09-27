@@ -1,5 +1,9 @@
 package node;
 
+/**
+ * A node is a data structure that stores an element and a reference to the next node
+ * @param <E> the type of element stored in the node
+ */
 public class Node<E> {
     public E element;
     public Node<E> next;
