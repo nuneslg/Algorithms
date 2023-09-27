@@ -1,5 +1,8 @@
 package graphs;
 
+/**
+ * Processes a vertex after visiting it and before visiting its adjacent vertices
+ */
 @FunctionalInterface
 public interface PosVisit {
     /**

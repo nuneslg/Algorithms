@@ -1,5 +1,8 @@
 package graphs;
 
+/**
+ * Processes a vertex before visiting it and its adjacent vertices
+ */
 @FunctionalInterface
 public interface PreVisit {
     /**
