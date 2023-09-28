@@ -25,7 +25,7 @@ public class Graph {
      * @return the index of the vertex if it exists, otherwise the number of vertices
      */
     public int first(Graph g, int v) {
-        for (int i = 0; i < g.numVertices - 1; i++) {
+        for (int i = 0; i < g.numVertices; i++) {
             if (g.matrix[v][i] != 0) {
                 return i;
             }
