@@ -6,12 +6,13 @@ import stack.Stack;
 /**
  * Performs a topological sort of a graph
  */
-    class TopoSort extends DFS<Stack<Integer>> {
+public class TopoSort extends DFS {
     public Stack<Integer> stack;
+    public Graph g;
 
-
-    public TopoSort() {
+    public TopoSort(Graph g) {
         this.stack = new Stack<>();
+        this.g = g;
     }
 
     @Override
@@ -20,8 +21,7 @@ import stack.Stack;
     }
 
     @Override
-    protected Stack<Integer> postVisit(Graph g, int v) {
+    protected void postVisit(Graph g, int v) {
         stack.push(stack, v);
-        return stack;
     }
 }
