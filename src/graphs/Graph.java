@@ -40,7 +40,7 @@ public class Graph {
      * @return the index of the vertex if it exists, otherwise the number of vertices
      */
     public int next(Graph g, int v, int w) {
-        for (int i = w + 1; i < g.numVertices - 1; i++) {
+        for (int i = w + 1; i < g.numVertices; i++) {
             if (g.matrix[v][i] != 0) {
                 return i;
             }
