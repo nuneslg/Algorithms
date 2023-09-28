@@ -1,42 +1,10 @@
 package graphs;
 
 public class Graph {
-    private int[][] matrix; // adjacency matrix
-    private int numEdges; // number of edges for each vertex
-    private int[] mark; // auxiliary marking array
-    private final int numVertices; // number of vertices
-
-    public int[][] getMatrix(Graph g) {
-        return g.matrix;
-    }
-
-    public int getNumEdges(Graph g) {
-        return g.numEdges;
-    }
-
-    public int getNumVertices(Graph g) {
-        return g.numVertices;
-    }
-
-    /**
-     * Sets the mark of a vertex
-     * @param g the graph
-     * @param v the vertex
-     * @param val the value (1 for VISITED and 0 for UNVISITED)
-     */
-    public void setMark(Graph g, int v, int val) {
-            g.mark[v] = val;
-    }
-
-    /**
-     * Gets the mark of a vertex
-     * @param g the graph
-     * @param v the vertex
-     * @return the value (1 for VISITED and 0 for UNVISITED)
-     */
-    public int getMark(Graph g, int v) {
-        return g.mark[v];
-    }
+    public int[][] matrix; // adjacency matrix
+    public int numEdges; // number of edges for each vertex
+    public int[] mark; // auxiliary marking array
+    public final int numVertices; // number of vertices
 
     /**
      * Creates a graph with n vertices and no edges.
@@ -87,9 +55,7 @@ public class Graph {
      * @param wt the weight of the edge
      */
     public void setEdge(Graph g, int i, int j, int wt) {
-        if (wt == 0) {
-            System.out.println("Cannot set weight to 0");
-        } else {
+        if (wt != 0) { // if the weight is not 0 (i.e. the edge exists)
             if (g.matrix[i][j] == 0) {
                 g.numEdges++; // increment the number of edges if the edge does not exist
             }
@@ -108,6 +74,35 @@ public class Graph {
             g.numEdges--; // decrement the number of edges if the edge exists
         }
         g.matrix[i][j] = 0;
+    }
+
+    /**
+     * Sets the mark of a vertex
+     * @param g the graph
+     * @param v the vertex
+     * @param val the value (1 for VISITED and 0 for UNVISITED)
+     */
+    public void setMark(Graph g, int v, int val) {
+        g.mark[v] = val;
+    }
+
+    /**
+     * Gets the mark of a vertex
+     * @param g the graph
+     * @param v the vertex
+     * @return the value (1 for VISITED and 0 for UNVISITED)
+     */
+    public int getMark(Graph g, int v) {
+        return g.mark[v];
+    }
+
+    public void printGraph(Graph g) {
+        for (int i = 0; i < g.numVertices; i++) {
+            for (int j = 0; j < g.numVertices; j++) {
+                System.out.print(g.matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
 }
