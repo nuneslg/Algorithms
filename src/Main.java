@@ -22,9 +22,14 @@ public class Main {
                 System.out.print(topoSort.stack.pop(topoSort.stack) + 1);
             }
         }
-        long finalTime = System.nanoTime();
-        long totalTime = finalTime - initialTime;
-        double ms = (double) totalTime / 1000000.0;
+        getRunTime(initialTime);
+
+    }
+
+public static void getRunTime(long initialTime) {
+    long finalTime = System.nanoTime();
+    long totalTime = finalTime - initialTime;
+    double ms = (double) totalTime / 1000000.0;
         System.out.println("\n\nThe execution time was: " + ms + " ms");
     }
 
