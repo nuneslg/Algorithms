@@ -97,6 +97,9 @@ public class Graph {
     }
 
     public int weight(int i, int j) {
+        if (this.matrix[i][j] == 0) {
+            return Integer.MAX_VALUE;
+        }
         return this.matrix[i][j];
     }
 

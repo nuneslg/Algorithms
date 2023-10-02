@@ -21,7 +21,8 @@ public class Dijkstra {
         this.P = new int[g.numVertices];
         // array of triples (predecessor, vertex, distance)
         ArrayList<Triple> triples = new ArrayList<>(); // array of triples
-        triples.set(1, new Triple(s, s, 0)); // set the triple for the source vertex
+        triples.add(null); // the first element of the array is null before being set
+        triples.set(0, new Triple(s, s, 0)); // set the triple for the source vertex
         for (int i = 0; i < g.numVertices; i++) {
             D[i] = Integer.MAX_VALUE; // set the distance to infinity
             P[i] = -1; // set the predecessor to -1
@@ -29,7 +30,7 @@ public class Dijkstra {
         }
         Heap<Triple> H = new MinHeap<>(triples); // create a min heap of triples
         D[s] = 0; // set the distance from the source vertex to itself to 0
-        for (int i = 0; i < g.numVertices - 1; i++) {
+        for (int i = 0; i < g.numVertices; i++) {
             Integer v;
             Integer p;
             do {
@@ -39,7 +40,7 @@ public class Dijkstra {
                 if (v == null) {
                     return;
                 }
-            } while (g.getMark(v) == 0); // while the vertex is marked
+            } while (g.getMark(v) != 0); // while the vertex is marked
             g.setMark(v, 1); // mark the vertex as visited
             P[v] = p; // set the predecessor of the vertex
             int w = g.first(v); // get the first vertex adjacent to v

@@ -18,10 +18,10 @@ public abstract class Traversal {
      */
     public void graphTraverse(Graph g,  int vertex) {
         for (int v = 0; v < g.numVertices; v++) {
-            g.setMark(g, v, 0); // mark all vertices as unvisited
+            g.setMark(v, 0); // mark all vertices as unvisited
         }
         for (int v = 0; v < g.numVertices; v++) {
-            if (g.getMark(g, v) == 0) { // guaranties that all vertices are visited in case of a disconnected graph
+            if (g.getMark(v) == 0) { // guaranties that all vertices are visited in case of a disconnected graph
                 traverse(g, vertex);
             }
         }
