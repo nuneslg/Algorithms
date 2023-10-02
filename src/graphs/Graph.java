@@ -20,86 +20,90 @@ public class Graph {
 
     /**
      * The index of the first vertex after a given vertex that is adjacent to it
-     * @param g the graph
+     *
      * @param v the vertex
      * @return the index of the vertex if it exists, otherwise the number of vertices
      */
-    public int first(Graph g, int v) {
-        for (int i = 0; i < g.numVertices; i++) {
-            if (g.matrix[v][i] != 0) {
+    public int first(int v) {
+        for (int i = 0; i < this.numVertices; i++) {
+            if (this.matrix[v][i] != 0) {
                 return i;
             }
-        } return g.numVertices;
+        } return this.numVertices;
     }
 
     /**
      * The index of the first vertex that v is adjacent to after w
-     * @param g the graph
+     *
      * @param v the first vertex
      * @param w the second vertex
      * @return the index of the vertex if it exists, otherwise the number of vertices
      */
-    public int next(Graph g, int v, int w) {
-        for (int i = w + 1; i < g.numVertices; i++) {
-            if (g.matrix[v][i] != 0) {
+    public int next(int v, int w) {
+        for (int i = w + 1; i < this.numVertices; i++) {
+            if (this.matrix[v][i] != 0) {
                 return i;
             }
-        } return g.numVertices;
+        } return this.numVertices;
     }
 
     /**
      * Adds or updates an edge between two vertices
-     * @param g the graph
-     * @param i the first vertex
-     * @param j the second vertex
+     *
+     * @param i  the first vertex
+     * @param j  the second vertex
      * @param wt the weight of the edge
      */
-    public void setEdge(Graph g, int i, int j, int wt) {
+    public void setEdge(int i, int j, int wt) {
         if (wt != 0) { // if the weight is not 0 (i.e. the edge exists)
-            if (g.matrix[i][j] == 0) {
-                g.numEdges++; // increment the number of edges if the edge does not exist
+            if (this.matrix[i][j] == 0) {
+                this.numEdges++; // increment the number of edges if the edge does not exist
             }
-            g.matrix[i][j] = wt; // set the weight of the edge without updating number of edges if it already exists
+            this.matrix[i][j] = wt; // set the weight of the edge without updating number of edges if it already exists
         }
     }
 
     /**
      * Removes an edge between two vertices
-     * @param g the graph
+     *
      * @param i the first vertex
      * @param j the second vertex
      */
-    public void delEdge(Graph g, int i, int j) {
-        if (g.matrix[i][j] != 0) {
-            g.numEdges--; // decrement the number of edges if the edge exists
+    public void delEdge(int i, int j) {
+        if (this.matrix[i][j] != 0) {
+            this.numEdges--; // decrement the number of edges if the edge exists
         }
-        g.matrix[i][j] = 0;
+        this.matrix[i][j] = 0;
     }
 
     /**
      * Sets the mark of a vertex
-     * @param g the graph
-     * @param v the vertex
+     *
+     * @param v   the vertex
      * @param val the value (1 for VISITED and 0 for UNVISITED)
      */
-    public void setMark(Graph g, int v, int val) {
-        g.mark[v] = val;
+    public void setMark(int v, int val) {
+        this.mark[v] = val;
     }
 
     /**
      * Gets the mark of a vertex
-     * @param g the graph
+     *
      * @param v the vertex
      * @return the value (1 for VISITED and 0 for UNVISITED)
      */
-    public int getMark(Graph g, int v) {
-        return g.mark[v];
+    public int getMark(int v) {
+        return this.mark[v];
     }
 
-    public void printGraph(Graph g) {
-        for (int i = 0; i < g.numVertices; i++) {
-            for (int j = 0; j < g.numVertices; j++) {
-                System.out.print(g.matrix[i][j] + " ");
+    public int weight(int i, int j) {
+        return this.matrix[i][j];
+    }
+
+    public void printGraph() {
+        for (int i = 0; i < this.numVertices; i++) {
+            for (int j = 0; j < this.numVertices; j++) {
+                System.out.print(this.matrix[i][j] + " ");
             }
             System.out.println();
         }
